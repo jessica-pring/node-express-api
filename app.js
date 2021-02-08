@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+// __ Converts incoming data to json __
+// let bodyParser = require('body-parser');
+// app.use(bodyParser.json({ extended: false }));
+
 app.get('/', (req, res) => {
   res.send('Hello world!');
 })
@@ -23,6 +27,11 @@ app.get('/products', (req, res) => {
   ];
 
   res.json(products);
+})
+
+app.get('/products/:id', (req, res) => {
+  // ... req.params.id
+  res.json(req.params.id);
 })
 
 app.listen(port, () => {
